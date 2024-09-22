@@ -1,7 +1,7 @@
 # Arquitetura em React Native
 
-
-- Para lidar com um data generico fiz usando classe segue o modelo
+- Desenho dela mesmo que [esta](https://github.com/kenjimaeda54/arquitetura_flutter) 
+- Para lidar com um data genérico fiz usando classe segue o modelo
   
 ```typescript
 
