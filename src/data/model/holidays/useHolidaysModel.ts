@@ -7,7 +7,6 @@ import { DataOrException, Loading } from "../../data_or_exceptions/dataOrExcepti
 interface HolidaysModel {
   getHolidays: () => void;
   holidays: DataOrException<HolidaysList>;
-  markedDates: MarkedDates[]
 }
 
 
@@ -16,7 +15,6 @@ interface HolidaysModel {
 
 export default function useHolidaysModel(): HolidaysModel {
   const [holidays, setHolidays] = useState<DataOrException<HolidaysList>>(new DataOrException<HolidaysList>(undefined, undefined, Loading.none));
-  const [markedDates, setMarkedDates] = useState<MarkedDates>({} as MarkedDates)
   const { fetchHolidays } = useHolidays();
 
   async function getHolidays() {
