@@ -212,6 +212,45 @@ export default function App() {
 
 ```
 
+- Maneria de lidar com Objetos Literais de propriedades de componentes
+
+
+```typescript
+//referencia
+
+<Calendar
+  // Collection of dates that have to be marked. Default = {}
+  markedDates={{
+    '2012-05-16': {selected: true, marked: true, selectedColor: 'blue'},
+    '2012-05-17': {marked: true},
+    '2012-05-18': {marked: true, dotColor: 'red', activeOpacity: 0},
+    '2012-05-19': {disabled: true, disableTouchEvent: true}
+  }}
+/>
+
+//como implemmentar
+
+if (holidays.loading === Loading.success) {
+    let markedDay = {} as { [key: string]: { marked: boolean, selected: boolean, selectedColor: string } }
+
+    for (let holiday of holidays.data!.holidays) {
+      markedDay[holiday.date] = {
+        marked: true,
+        selected: true,
+        selectedColor: 'red'
+      }
+    }
 
 
 
+    return (
+      <View style={style.container}>
+        <Calendar
+          initialDate={"2024-01-01"}
+          markedDates={markedDay}
+        />
+      </View>
+    )
+  }
+}
+```
